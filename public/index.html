@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b12" />
+    <meta
+      name="description"
+      content="Plan a more joyful celebration with EventGenie: your AI-powered event planning studio."
+    />
+    <title>EventGenie — your celebration, beautifully planned</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js?v=6" defer></script>
+  </head>
+  <body class="min-h-screen bg-ink font-sans text-slate-100 antialiased">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#dashboard" aria-label="EventGenie dashboard">
+          <span class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+          <span class="brand-copy"><strong>eventgenie</strong><small>CELEBRATE BETTER</small></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="nav-list" aria-label="Main navigation">
+          <button class="nav-item active" data-view="dashboard"><i class="fa-solid fa-grid-2"></i><span>Overview</span></button>
+          <button class="nav-item" data-view="wizard"><i class="fa-regular fa-calendar-plus"></i><span>Event wizard</span><span class="nav-tag">AI</span></button>
+          <button class="nav-item" data-view="budget"><i class="fa-solid fa-chart-pie"></i><span>Budget planner</span></button>
+          <button class="nav-item" data-view="timeline"><i class="fa-solid fa-list-check"></i><span>Timeline</span><span class="nav-count" id="task-nav-count">0</span></button>
+          <button class="nav-item" data-view="vendors"><i class="fa-solid fa-store"></i><span>Vendor checklist</span></button>
+          <button class="nav-item" data-view="assistant"><i class="fa-regular fa-comments"></i><span>EventCopilot</span><span class="online-dot"></span></button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-tip">
+          <div class="tip-icon"><i class="fa-regular fa-lightbulb"></i></div>
+          <strong>A little planning magic</strong>
+          <p>Great celebrations start with a great plan. Let’s make yours unforgettable.</p>
+          <button data-view="wizard">Create your blueprint <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="profile-row">
+          <div class="avatar">EG</div>
+          <div class="profile-copy"><strong>Your workspace</strong><span>Saved on this device</span></div>
+          <button class="icon-button" id="reset-plan" aria-label="Reset to demo plan" title="Reset to demo plan"><i class="fa-solid fa-rotate-left"></i></button>
+        </div>
+      </aside>
+
+      <main class="main-column">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation"><i class="fa-solid fa-bars"></i></button>
+            <div class="breadcrumb"><span>Workspace</span><i class="fa-solid fa-chevron-right"></i><strong id="view-breadcrumb">Overview</strong></div>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box" for="global-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="global-search" type="search" placeholder="Search your plan..." autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </label>
+            <button class="icon-button notification-button" id="notifications-button" aria-label="Notifications">
+              <i class="fa-regular fa-bell"></i><span class="notification-dot"></span>
+            </button>
+            <div class="ai-status" id="ai-status" title="Checking AI connection">
+              <span class="status-pulse"></span><span id="ai-status-label">Checking AI</span><i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+        </header>
+        <div id="notification-panel" class="notification-panel hidden">
+          <div class="panel-heading"><strong>Your updates</strong><span class="status-badge">LIVE</span></div>
+          <p><i class="fa-regular fa-calendar-check"></i> Your event plan is saved on this device.</p>
+          <p><i class="fa-solid fa-wand-magic-sparkles"></i> Gemini status is shown in the header.</p>
+        </div>
+        <div id="app-view" class="page-content" tabindex="-1"></div>
+      </main>
+    </div>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <div id="modal-root"></div>
+  </body>
+</html>
